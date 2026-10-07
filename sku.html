@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SKU Generator</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: #F7F1E8;
+            color: #6e3a93;
+        }
+
+        .sku-card {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+
+            background: #FFFDF8;
+            border: 1px solid #b389d5;
+            border-radius: 22px;
+
+            padding: 35px 45px;
+
+            box-shadow: 0 15px 40px rgba(134, 80, 170, 0.247);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            text-align: center;
+
+            color: #6e3a93;
+            font-size: 30px;
+        }
+
+        .description {
+            text-align: center;
+            color: #8A7565;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 8px;
+
+            color: #6e3a93;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px 15px;
+
+            border: 1px solid #b389d5;
+            border-radius: 10px;
+
+            background: white;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #8d50c9;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 25px;
+            padding: 14px 20px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: #8d50c9;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #753bb0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E4D6C5;
+            margin: 30px 0;
+        }
+
+        #sku-result {
+            min-height: 80px;
+
+            padding: 20px;
+
+            background: #F7F1E8;
+            border: 1px dashed #b389d5;
+            border-radius: 12px;
+
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #6e3a93;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .sku-card {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sku-card">
+
+        <h1>SKU Generator</h1>
+
+        <p class="description">
+            Generate a unique SKU for your product.
+        </p>
+
+        <form>
+
+            <label for="category">Category</label>
+
+            <select id="category">
+                <option value="Perishables">Perishables</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Frozen Foods">Frozen Foods</option>
+                <option value="Household">Household</option>
+            </select>
+
+
+            <label for="product-name">Product Name</label>
+
+            <input
+                type="text"
+                id="product-name"
+                placeholder="e.g. Bottled Water"
+            >
+
+
+            <label for="stock-quantity">Stock Quantity</label>
+
+            <input
+                type="number"
+                id="stock-quantity"
+                placeholder="e.g. 50"
+                min="0"
+            >
+
+
+            <button
+                type="button"
+                py-click="generate_sku">
+                Generate SKU
+            </button>
+
+        </form>
+
+        <hr>
+
+        <div id="sku-result">
+            Your generated SKU will appear here.
+        </div>
+
+    </div>
+
+    <py-script src="sku.py"></py-script>
+
+</body>
+</html>
