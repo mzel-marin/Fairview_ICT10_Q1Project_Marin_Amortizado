@@ -15,7 +15,7 @@
 
     body {
         margin: 0;
-        padding: 40px 20px;
+        padding: 0;
         min-height: 100vh;
 
         font-family: Arial, sans-serif;
@@ -24,10 +24,47 @@
         color: #ba94dd;
     }
 
+    .navbar {
+        width: 100%;
+        padding: 18px 40px;
+
+        background: #6e3a93;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar h2 {
+        margin: 0;
+        color: white;
+        font-size: 22px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+
+        padding: 10px 18px;
+        margin-left: 8px;
+
+        border-radius: 8px;
+
+        font-weight: bold;
+
+        transition: 0.2s;
+    }
+
+    .navbar a:hover {
+        background: #8d50c9;
+    }
+
     .shop-card {
         width: 100%;
         max-width: 900px;
-        margin: 0 auto;
+        margin: 40px auto;
 
         background: #FFFDF8;
         border: 1px solid #b389d5;
@@ -133,7 +170,6 @@
         margin: 30px 0;
     }
 
-    /* Receipt heading */
     .shop-card h3:nth-of-type(2) {
         text-align: center;
 
@@ -180,55 +216,109 @@
         font-size: 12px;
         font-weight: bold;
         letter-spacing: 2px;
+    }
+
+    @media (max-width: 600px) {
+        .navbar {
+            padding: 15px 20px;
         }
 
-    body {
-            padding: 20px 12px;
+        .navbar h2 {
+            font-size: 18px;
         }
 
-    .shop-card {
+        .navbar a {
+            padding: 8px 10px;
+            font-size: 14px;
+        }
+
+        .shop-card {
+            margin: 20px 12px;
             padding: 25px 20px;
             border-radius: 16px;
         }
 
-    .shop-card h1 {
+        .shop-card h1 {
             font-size: 25px;
         }
 
-    form label {
+        form label {
             font-size: 15px;
             padding: 13px;
         }
 
-    #receipt {
+        #receipt {
             font-size: 16px;
         }
-
+    }
 </style>
 
 <body>
+
+    <nav class="navbar">
+        <h2>Deja Brew ☕</h2>
+
+        <div>
+            <a href="index.html">Receipt Generator</a>
+            <a href="sku.html">SKU Generator</a>
+        </div>
+    </nav>
+
     <div class="shop-card">
-    <h1>OBMC Entrep Fair Group 1 - Deja Brew Coffee Shop</h1>
 
-    <h3>Menu:</h3>
+        <h1>OBMC Entrep Fair Group 1 - Deja Brew Coffee Shop</h1>
 
-    <form>
-    <label><input type="checkbox" id="americano"> Americano (₱ 155.00)</label><br>
-    <label><input type="checkbox" id="latte"> Spanish Latte (₱ 165.50)</label><br>
-    <label><input type="checkbox" id="coldbrew"> Cold Brew Malt (₱ 165.00)</label><br>
-    <label><input type="checkbox" id="affogato"> Affogato (₱ 155.00)</label><br>
-    <label><input type="checkbox" id="caramel"> Caramel Macchiato (₱ 185.00)</label><br>
-    <label><input type="checkbox" id="cookie"> Cookie Butter Frappe (₱ 210.00)</label><br>
-    <label><input type="checkbox" id="matcha"> Matcha Latte (₱ 185.50)</label><br><br>
+        <h3>Menu:</h3>
 
-    <input type="button" py-click="create_order" value="Create Order">
-    </form>
+        <form>
+            <label>
+                <input type="checkbox" id="americano">
+                Americano (₱ 155.00)
+            </label>
 
-    <br><hr>
-    <h3>======== RECEIPT =========</h3>
-    <div id="receipt" style="font-size: 18px;"></div>
+            <label>
+                <input type="checkbox" id="latte">
+                Spanish Latte (₱ 165.50)
+            </label>
+
+            <label>
+                <input type="checkbox" id="coldbrew">
+                Cold Brew Malt (₱ 165.00)
+            </label>
+
+            <label>
+                <input type="checkbox" id="affogato">
+                Affogato (₱ 155.00)
+            </label>
+
+            <label>
+                <input type="checkbox" id="caramel">
+                Caramel Macchiato (₱ 185.00)
+            </label>
+
+            <label>
+                <input type="checkbox" id="cookie">
+                Cookie Butter Frappe (₱ 210.00)
+            </label>
+
+            <label>
+                <input type="checkbox" id="matcha">
+                Matcha Latte (₱ 185.50)
+            </label>
+
+            <input type="button" py-click="create_order" value="Create Order">
+        </form>
+
+        <br>
+        <hr>
+
+        <h3>======== RECEIPT =========</h3>
+
+        <div id="receipt" style="font-size: 18px;"></div>
+
     </div>
 
     <py-script src="main.py"></py-script>
+
 </body>
 </html>
